@@ -25,7 +25,7 @@ public class RemoveDupsFromSortedArray {
             nums[j[0]++] = (int) key;
         });
 
-        System.out.println(nums);
+        System.out.println(Arrays.toString(nums));
         return myset.size();
     }
 }
