@@ -11,7 +11,7 @@ public class RemoveDupsFromSortedArray {
 
     public static int removeDuplicates(int[] nums) {
         Set myset = new HashSet();
-        List mylist = new ArrayList<>();
+        List mylist;
 
         final int[] j = {0};
         for(int i=0; i<nums.length; i++) {
@@ -24,6 +24,12 @@ public class RemoveDupsFromSortedArray {
         mylist.forEach(key -> {
             nums[j[0]++] = (int) key;
         });
+
+       /* for(int i=0; i <mylist.size(); i++) {
+            for(int k=0; k<nums.length; k++) {
+                nums[k] = (int) mylist.get(i);
+            }
+        }*/
 
         System.out.println(Arrays.toString(nums));
         return myset.size();
