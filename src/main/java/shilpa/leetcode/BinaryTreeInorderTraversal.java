@@ -1,27 +1,31 @@
 package shilpa.leetcode;
 
-import com.sun.source.tree.Tree;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Stack;
 
 public class BinaryTreeInorderTraversal {
     public static List<Integer> inorderTraversal(TreeNode root) {
-     List<Integer> res=new ArrayList<>();
-     Stack<TreeNode> stack=new Stack<>();
-     TreeNode curr=root;
-     while((curr!=null)||(!stack.isEmpty())){
-         while(curr!=null){
-             stack.push(curr);
-             curr=curr.left;
-         }
-         curr=stack.pop();
-         res.add(curr.val);
-         curr=curr.right;
-     }
-     return res;
+        List<Integer> res=new ArrayList<>();
+        if(root==null)
+            return res;
+
+        Stack<TreeNode> S= new Stack<>();
+
+        while(root!=null || !S.isEmpty()) {
+            if(root!=null) {
+                S.add(root);
+                root=root.left;
+            }
+            else {
+                root=S.pop();
+                res.add(root.val);
+                root=root.right;
+            }
+        }
+
+        return res;
     }
 
     public static void main(String[] args) {
