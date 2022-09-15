@@ -1,14 +1,12 @@
 package shilpa.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Collectors;
+import java.util.*;
+//import java.util.concurrent.atomic.AtomicBoolean;
+//import java.util.stream.Collectors;
 
 public class ContainsDuplicates {
     public static boolean containsDuplicate(int[] nums) {
+        /*Method1-to practice Streams topic:
         List<Integer> li = new ArrayList<>();
         AtomicBoolean returnVal = new AtomicBoolean(false);
 
@@ -27,11 +25,27 @@ public class ContainsDuplicates {
             }
         });
 
-        return returnVal.get();
+        return returnVal.get();*/
+        /*Method2- easy solution using hashMap*/
+       /* HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i:nums){
+            if(map.containsKey(i))return true;
+            map.put(i,1);
+        }
+        return false;*/
+        /*Method2- easy solution using hashset*/
+        HashSet<Integer> hs=new HashSet<>();
+        for (int num : nums) {
+            if (hs.contains(num)) {
+                return true;
+            }
+            hs.add(num);
+        }
+        return false;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 3};
+        int[] nums = new int[]{1, 2, 3, 6};
         boolean b = ContainsDuplicates.containsDuplicate(nums);
         System.out.println(b);
     }
